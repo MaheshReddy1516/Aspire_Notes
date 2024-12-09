@@ -1,0 +1,93 @@
+
+Interfaces
+==========
+=> An Interface is Nothing but an incomplete class.
+=> In Interface bydeafult all fields are public,static and final
+=>By using Interfaces we can achieve multiple Inheritance
+
+public interface ProductsService {
+	
+	public ProductsDto addProduct(ProductsDto productsDto);
+	public ProductsDto updateProduct(Integer productId , ProductsDto productsDto );
+	public List<ProductsDto> getAllProducts();
+	public ProductsDto getProductById(Integer productId );
+	public ProductsDto delProductById(Integer productId);
+	public boolean updateStock(Integer productId , Integer quantity);
+
+}
+
+when to go for inheritance in java ?
+=>  When There Is a "Is-a" Relationship
+=> When You Want to Reuse Code
+=> When You Need to Extend or Customize the Behavior of a Class
+=> When You Want to Implement Polymorphism
+=>  When You Need to Establish a Hierarchy
+
+abstract class
+===============
+=>Abstract class is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class)
+ 
+when we go for abstract class ?
+=> When You Need to Share Code Among Related Classes(emp can take work(),sleep(),eat()....)
+
+
+
+give me small example for multiple inheritance by using interfaces ?
+
+
+public interface EmailNotificationInterface {
+    void sendEmail(String recipient, String message);
+}
+
+
+public interface SMSNotificationInterface {
+    void sendSMS(String phoneNumber, String message);
+}
+
+
+
+public interface PushNotificationInterface {
+    void sendPushNotification(String deviceToken, String message);
+}
+
+
+
+
+
+public class NotificationService implements EmailNotificationInterface, SMSNotificationInterface, PushNotificationInterface {
+
+    @Override
+    public void sendEmail(String recipient, String message) {
+        // Logic to send an email
+        System.out.println("Sending email to " + recipient + " with message: " + message);
+    }
+
+    @Override
+    public void sendSMS(String phoneNumber, String message) {
+        // Logic to send an SMS
+        System.out.println("Sending SMS to " + phoneNumber + " with message: " + message);
+    }
+
+    @Override
+    public void sendPushNotification(String deviceToken, String message) {
+        // Logic to send a push notification
+        System.out.println("Sending push notification to " + deviceToken + " with message: " + message);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
